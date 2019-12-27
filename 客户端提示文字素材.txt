@@ -1,0 +1,117 @@
+1. 开始菜单提示文本：
+	private String OUTPUT_SIGN_LINE = "-------------------------------------\n";
+	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入无效，请重新输入！";
+	private String OUTPUT_TEXT_SELECT = "请选择： ";
+	private String OUTPUT_TEXT_TITLE = "欢迎使用 看书吧 在线TXT小说阅读器\n";
+	private String OUTPUT_TEXT_LOGIN = "1.登录\n";
+	private String OUTPUT_TEXT_REGISTER = "2.注册\n";
+	private String OUTPUT_TEXT_LOGOUT = "3.退出\n";
+	private String OUTPUT_TEXT_THANK="谢 谢 使 用！";
+	private StringBuilder MENU_START = new StringBuilder(OUTPUT_TEXT_TITLE)
+								.append(OUTPUT_SIGN_LINE)
+								.append(OUTPUT_TEXT_LOGIN)
+								.append(OUTPUT_TEXT_REGISTER)
+								.append(OUTPUT_TEXT_LOGOUT)
+								.append(OUTPUT_SIGN_LINE)
+								.append(OUTPUT_TEXT_SELECT);
+
+
+2. 注册功能提示文本：
+	private String OUTPUT_TEXT_USERNAME = "请输入登录名:";
+	private String OUTPUT_TEXT_PASSWORD = "请输入密码:";
+	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入无效，请重新输入！";
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
+	private String OUTPUT_TEXT_PASSWORD2 = "请再次输入密码:";
+	private String OUTPUT_TEXT_USEREXIST = "用户名已存在，请重新注册！";
+	private String OUTPUT_TEXT_PASSWORDNOTEQUAL = "两次密码不一样！";
+	private String OUTPUT_USER_SAVESUCESS = "用户注册成功，请登录！";
+	private String OUTPUT_USER_SAVEFAIL = "用户注册失败，请重新注册！";
+
+
+3. 登录功能提示文本：
+	private String OUTPUT_TEXT_USERNAMEE = "请输入登录名：";
+	private String OUTPUT_TEXT_PASSWORD = "请输入密码：";
+	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入无效，请重新输入！";
+	private String OUTPUT_TEXT_SUCCESS = "登录成功！";
+	private String OUTPUT_TEXT_FAILED = "用户名或密码错误，请重新输入！";
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
+
+
+4. 获得小说分类功能提示文本：
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
+	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入有误，请重新输入！";
+	private String OUTPUT_SIGN_LINE = "-------------------------------------\n";
+	private String OUTPUT_SIGN_SELECT = "请选择：";
+	private String OUTPUT_TEXT_RETURN = "0.退出登录";
+	private StringBuilder MENU_TEXT_SORT_BEGIN = new StringBuilder(OUTPUT_SIGN_LINE)
+										.append(OUTPUT_TEXT_RETURN);
+	private StringBuilder MENU_TEXT_SORT_END = new StringBuilder(OUTPUT_SIGN_LINE)
+										.append(OUTPUT_SIGN_SELECT);
+
+
+5. 获得小说列表功能提示文本：
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
+	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入有误，请重新输入！";
+	private String OUTPUT_TEXT_READDOWN = "阅读和下载请选择文件序号，上传TXT请输入-1，返回请输入0：";
+	private String OUTPUT_SIGN_BEGINLINE = "------------------%1$s列表结束------------------";
+	private String OUTPUT_SIGN_HEAD = "序号\t\t名称\t\t作者\t\t简介";
+	private String OUTPUT_SIGN_ENDLINE = "------------------小说列表结束------------------";
+	private String OUTPUT_SIGN_LINE="-------------------------------------\n";
+	private String STORY_TEXT_RETURN="0.返回上一级菜单\n";
+	private String STORY_TEXT_READ="1.在线阅读\n";
+	private String STORY_TEXT_DOWNLOAD="2.下载TXT\n";
+	private String OUTPUT_SIGN_SELECT="请选择： ";
+	private StringBuffer MENU_FUNCTION = new StringBuffer(OUTPUT_SIGN_LINE)
+											.append(STORY_TEXT_RETURN)
+											.append(STORY_TEXT_READ)
+											.append(STORY_TEXT_DOWNLOAD)
+											.append(OUTPUT_SIGN_LINE)
+											.append(OUTPUT_SIGN_SELECT);
+
+
+6. 在线试读功能提示文本：
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
+	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入有误，请重新输入！";
+	private String OUTPUT_SIGN_ASTERISK = "**********************************************\n";
+	private String OUTPUT_SIGN_BEGINLINE = "当前阅读：《%1$s》";
+	private String OUTPUT_SIGN_ENDLINE = "\n......，省略内容请下载后阅读\n";
+	private String OUTPUT_TEXT_SELECTLIST = "继续显示列表请输入1，下载TXT请输入2：";
+	private String OUTPUT_TEXT_FILENOTFOUND = "文件未找到，可能已被删除！";
+	private String OUTPUT_TEXT_FILECANNOTREAD = "文件读取错误，预览失败！";
+	private StringBuilder MENU_TEXT_SORT_BEGIN = new StringBuilder(
+			OUTPUT_SIGN_ASTERISK).append(OUTPUT_SIGN_BEGINLINE);
+	private StringBuilder MENU_TEXT_SORT_END = new StringBuilder(
+			OUTPUT_SIGN_ENDLINE).append(OUTPUT_SIGN_ASTERISK).append(
+			OUTPUT_TEXT_SELECTLIST);
+
+
+7. 下载功能提示文本：
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
+	private String OUTPUT_SIGN_ASTERISK = "**********************************************\n";
+	private String OUTPUT_TEXT_FILENOTFOUND = "文件未找到，可能已被删除！";
+	private String OUTPUT_TEXT_FILECANNOTREAD = "文件无法读取，下载失败！";
+	private String OUTPUT_TEXT_DOWNLOADSTART = "文件开始下载！";
+	private String OUTPUT_TEXT_DOWNLOADFAIL = "文件下载失败！";
+	private String OUTPUT_TEXT_DOWNLOADSUCCESS = "文件下载成功！\n下载后的文件路径是：%1$s\n下载后的文件名是：%2$s";
+	private String OUTPUT_TEXT_SELECTLIST = "按回车键返回：";
+
+
+8. 上传功能提示文本：
+	private String OUTPUT_INPUT_NAME = "请输入小说名：";
+	private String OUTPUT_INPUT_AUTHOR = "请输入作者：";
+	private String OUTPUT_INPUT_DESC = "请输入简介：";
+	private String OUTPUT_INPUT_PATH = "请输入上传的txt(请注意路径用/或者\\\\)：";
+	private String OUTPUT_TEXT_REUPLOAD = "继续上传请输入1，返回请输入0：";
+	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！ ";
+	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！ ";
+	private String OUTPUT_TEXT_FILEEXSITS = "文件已存在，上传终止！ ";
+	private String OUTPUT_SIGN_ASTERISK = "**********************************************";
+	private String OUTPUT_TEXT_FILENOTFOUND = "文件未找到，请确认后重试！";
+	private String OUTPUT_TEXT_UPLOADFAIL = "文件上传失败！";
+
