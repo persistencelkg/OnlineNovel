@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <services>
-	<service key="start">cn.ksb.minitxt.services.StartService</service>
-	<!--其他功能-->
+	<service key="start">org.lkg.service.StartService</service>
+	<service key="login">org.lkg.service.impl.LoginServcieImpl</service>
+	<service key="regist">org.lkg.service.impl.RegisterServiceImpl</service>
 </services>
