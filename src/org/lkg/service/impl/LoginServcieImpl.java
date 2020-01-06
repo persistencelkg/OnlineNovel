@@ -11,12 +11,21 @@ import org.lkg.protocal.Protocol;
 import org.lkg.protocal.ProtocolImpl;
 import org.lkg.service.BaseServiceImpl;
 import org.lkg.service.Service;
+import org.lkg.service.ServiceFactory;
 import org.lkg.util.GetProperies;
 import org.lkg.util.ResultStatus;
 import org.lkg.util.StringUtil;
 import org.lkg.util.SysConstants;
 
-public class LoginServcieImpl extends BaseServiceImpl<Users>{
+/**
+ * 客户端-登录实现类
+ * @description: 由于并不需要指明泛型的目标 可以简单给个序列化接口
+ * @author: 浮~沉
+ * @version: 1.0
+ * @data 2020年1月6日 上午9:13:19
+ * @CopyRight lkg.nb.com
+ */
+public class LoginServcieImpl extends BaseServiceImpl<Serializable>{
 
 	/**
 	 * 登录界面提示
@@ -38,7 +47,6 @@ public class LoginServcieImpl extends BaseServiceImpl<Users>{
 			String uname=input.next().trim();
 			System.out.print(OUTPUT_TEXT_PASSWORD);
 			String pass=input.next().trim();
-			System.out.println(uname+pass);
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			
 			//良好的习惯:客户端首先对用户的输入进行初步判断,以减少服务器的资源浪费
@@ -54,7 +62,7 @@ public class LoginServcieImpl extends BaseServiceImpl<Users>{
 			
 			if(result==ResultStatus.LOGIN_SUCCESS) {
 				System.out.println(OUTPUT_TEXT_SUCCESS);
-				
+				return ServiceFactory.getService(SysConstants.小说分类);
 				//小说分类
 				
 			}else if(result==ResultStatus.USERNAME_NOT_EXIST||
@@ -81,6 +89,7 @@ public class LoginServcieImpl extends BaseServiceImpl<Users>{
 	 * @return 反馈服务端响应结果
 	 */
 	private ResultStatus communicate(Users users) {
+		//客户端封装数据传输对象
 		SysDTO<Users> dto=new SysDTO<>();
 		dto.setData(users);
 		dto.setType(SysConstants.登录);

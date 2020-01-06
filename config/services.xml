@@ -4,4 +4,7 @@
 	<service key="start">org.lkg.service.StartService</service>
 	<service key="login">org.lkg.service.impl.LoginServcieImpl</service>
 	<service key="regist">org.lkg.service.impl.RegisterServiceImpl</service>
+	<service key="novel_sort">org.lkg.service.impl.GetClassficationImpl</service>
+	
+	<service key="novel_list">org.lkg.service.impl.GetNovelsInfoImpl</service>
 </services>
