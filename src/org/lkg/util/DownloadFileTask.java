@@ -7,18 +7,21 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
+
+import org.lkg.entity.Novel;
+import org.lkg.protocal.ProtocolImpl;
 
 public class DownloadFileTask implements Runnable{
 	private String OUTPUT_SIGN_ASTERISK = "**********************************************\n";
 	private String OUTPUT_TEXT_DOWNLOADFAIL = "文件下载失败！";
 	private String OUTPUT_TEXT_DOWNLOADSUCCESS = "文件下载成功！\n下载后的文件路径是：%1$s\n下载后的文件名是：%2$s";
-	private String OUTPUT_TEXT_SELECTLIST = "按回车键返回：";
 	private static final int size=1024*1;
 	private String novelName;
-	private ObjectInputStream in;  //客户端的对象读入流
+	private ProtocolImpl<Novel, ? extends Serializable> transfrom;
 	
-	public DownloadFileTask(ObjectInputStream in,String novelName) {
-		this.in=in;
+	public DownloadFileTask(ProtocolImpl<Novel, ? extends Serializable> transfrom,String novelName) {
+		this.transfrom=transfrom;
 		this.novelName=novelName;
 	}
 	
@@ -37,7 +40,7 @@ public class DownloadFileTask implements Runnable{
 		int len=-1;
 		try {
 			outputStream=new FileOutputStream(file);
-			while((len=in.read(bytes))!=-1) {
+			while((len=transfrom.getIn().read(bytes))!=-1) {
 				outputStream.write(bytes,0,len);
 			}
 			outputStream.flush();
@@ -52,8 +55,9 @@ public class DownloadFileTask implements Runnable{
 			try {
 				if(outputStream!=null) 
 					outputStream.close();
-				if(in!=null)
-					in.close();
+				if(transfrom.getIn()!=null)
+					transfrom.getIn().close();
+				transfrom.destory();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

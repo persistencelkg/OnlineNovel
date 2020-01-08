@@ -118,8 +118,7 @@ public class GetNovelsInfoImpl extends BaseServiceImpl<Classifcation>{
 			//进入阅读菜单
 			int choice2=readingMenu();
 			//获得用户刚选择的小说
-			Novel novel=novels[choice2-1];
-			
+			Novel novel=novels[choice2==0?0:choice2-1];
 			switch(choice2) {
 			 case 0: //返回上一级 : 重新获得小说集合
 				 Service<Classifcation> getNovels=ServiceFactory.getService(SysConstants.小说集合);

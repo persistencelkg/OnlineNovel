@@ -97,7 +97,7 @@ public class DownloadServiceImpl extends BaseServiceImpl<Novel>{
 		//开始真正的下载
 		if(isContinue) {
 			new Thread(
-					new DownloadFileTask(transform.getIn(),getInputData().getName())
+					new DownloadFileTask(transform,getInputData().getName())
 					).start();
 			
 		}else {
@@ -110,7 +110,8 @@ public class DownloadServiceImpl extends BaseServiceImpl<Novel>{
 		}
 		System.out.println(OUTPUT_SIGN_ASTERISK);
 		System.out.println(OUTPUT_TEXT_SELECTLIST);
-		input.nextLine();//特点:遇到回车结束输入 
+		String key=input.nextLine();//特点:遇到回车结束输入 
+		
 		
 		Service<Classifcation> getNovels=ServiceFactory.getService(SysConstants.小说集合);
 		getNovels.setInutData(getInputData().getClassifcation());
