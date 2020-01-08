@@ -11,7 +11,6 @@ import org.lkg.protocal.Protocol;
 import org.lkg.protocal.ProtocolImpl;
 import org.lkg.service.BaseServiceImpl;
 import org.lkg.service.Service;
-import org.lkg.service.ServiceFactory;
 import org.lkg.util.GetProperies;
 import org.lkg.util.ResultStatus;
 import org.lkg.util.StringUtil;
@@ -40,7 +39,6 @@ public class LoginServcieImpl extends BaseServiceImpl<Serializable>{
 	
 	@Override
 	public Service<? extends Serializable> execute() {
-		Scanner input=new Scanner(System.in);
 		while(true) {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.print(OUTPUT_TEXT_USERNAME);
@@ -51,7 +49,7 @@ public class LoginServcieImpl extends BaseServiceImpl<Serializable>{
 			
 			//良好的习惯:客户端首先对用户的输入进行初步判断,以减少服务器的资源浪费
 			if(StringUtil.isEmpty(uname)||StringUtil.isEmpty(pass)) {
-				System.out.println(OUTPUT_TEXT_FAILED);
+				System.out.println(OUTPUT_TEXT_INVALIDINPUT);
 				continue;
 			}
 			

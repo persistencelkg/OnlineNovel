@@ -10,7 +10,6 @@ import org.lkg.protocal.Protocol;
 import org.lkg.protocal.ProtocolImpl;
 import org.lkg.service.BaseServiceImpl;
 import org.lkg.service.Service;
-import org.lkg.service.ServiceFactory;
 import org.lkg.util.GetProperies;
 import org.lkg.util.SysConstants;
 
@@ -24,9 +23,6 @@ import org.lkg.util.SysConstants;
  */
 public class GetClassficationImpl extends BaseServiceImpl<Serializable>{
 
-	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
-	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
-	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入有误，请重新输入！";
 	private String OUTPUT_SIGN_LINE = "-------------------------------------\n";
 	private String OUTPUT_SIGN_SELECT = "请选择：";
 	private String OUTPUT_TEXT_RETURN = "0.退出登录";
@@ -58,7 +54,6 @@ public class GetClassficationImpl extends BaseServiceImpl<Serializable>{
 			
 			//客户端-服务端已经通信
 			reponse=transform.Communiate(dto);
-			
 		} catch (NumberFormatException | ClassNotFoundException e) {
 			//这部分是由于配置文件或者其他致命性的程序错误需要立即结束程序
 			System.out.println(OUTPUT_TEXT_ERROR);
@@ -86,29 +81,31 @@ public class GetClassficationImpl extends BaseServiceImpl<Serializable>{
 		}
 		System.out.println(MENU_TEXT_SORT_END);
 		
-		Scanner input=new Scanner(System.in);
 		//由于选择只能应该根据classes 的长度确定选择的范围
 		int choice=-1;
-		while(true) {
-			if(input.hasNextInt()) {
-				choice=input.nextInt();
-				if(choice<0||choice>classes.length) {
-					System.out.println(OUTPUT_TEXT_INVALIDINPUT);
-					continue;
-				}else if (choice ==0) {//退出登录
-					return ServiceFactory.getService(SysConstants.开始);
-				}else {
-					break;
-				}
+		while(true) {	
+			try {
+				choice=Integer.valueOf(input.next().trim());
+			} catch (NumberFormatException e) {
+				System.out.println(OUTPUT_TEXT_INVALIDINPUT);
+				continue;
 			}
-			System.out.println(OUTPUT_TEXT_INVALIDINPUT);
+			
+			if(choice<0||choice>classes.length) {
+				System.out.println(OUTPUT_TEXT_INVALIDINPUT);
+				continue;
+			}else if (choice ==0) {//退出登录
+				return ServiceFactory.getService(SysConstants.开始);
+			}else {
+				break;
+			}
+			
 		}
 		//正确的输入 -> 获取所有小说集合
-//		Service<Classifcation> nextFuction=ServiceFactory.getService(SysConstants.小说集合);
-//		
-//		nextFuction.setInutData(classes[choice-1]);
-//		return nextFuction;
-		return null;
+		Service<Classifcation> nextFuction=ServiceFactory.getService(SysConstants.小说集合);
+		
+		nextFuction.setInutData(classes[choice-1]);
+		return nextFuction;
 	
 	}
 

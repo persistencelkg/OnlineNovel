@@ -3,6 +3,7 @@ package org.lkg.service;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import org.lkg.service.impl.ServiceFactory;
 import org.lkg.util.SysConstants;
 
 /**
@@ -51,6 +52,7 @@ public class StartService extends BaseServiceImpl<Serializable>{
 				return ServiceFactory.getService(SysConstants.注册);
 			case "3":
 				System.out.println(OUTPUT_TEXT_THANK);
+				input.close();
 				System.exit(0);
 			default:
 				System.out.println(OUTPUT_TEXT_INVALIDINPUT);

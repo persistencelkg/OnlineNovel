@@ -10,7 +10,6 @@ import org.lkg.protocal.Protocol;
 import org.lkg.protocal.ProtocolImpl;
 import org.lkg.service.BaseServiceImpl;
 import org.lkg.service.Service;
-import org.lkg.service.ServiceFactory;
 import org.lkg.util.GetProperies;
 import org.lkg.util.ResultStatus;
 import org.lkg.util.SysConstants;
@@ -18,9 +17,6 @@ import org.lkg.util.SysConstants;
 public class RegisterServiceImpl extends BaseServiceImpl<Serializable>{
 	private String OUTPUT_TEXT_USERNAME = "请输入用户名:";
 	private String OUTPUT_TEXT_PASSWORD = "请输入密码:";
-	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入无效，请重新输入！";
-	private String OUTPUT_TEXT_SERVERERROR = "服务器故障，请重试！";
-	private String OUTPUT_TEXT_ERROR = "系统存在错误，服务终止！";
 	private String OUTPUT_TEXT_PASSWORD2 = "请再次输入密码:";
 	private String OUTPUT_TEXT_USEREXIST = "用户名已存在，请重新注册！";
 	private String OUTPUT_TEXT_PASSWORD_NOT_EQUAL = "两次密码不一样！";
@@ -29,7 +25,6 @@ public class RegisterServiceImpl extends BaseServiceImpl<Serializable>{
 	
 	@Override
 	public Service<? extends Serializable> execute() {
-		Scanner input=new Scanner(System.in);
 		while(true) {
 			System.out.println(OUTPUT_TEXT_USERNAME);
 			String uname=input.next().trim();

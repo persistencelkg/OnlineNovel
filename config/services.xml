@@ -7,4 +7,7 @@
 	<service key="novel_sort">org.lkg.service.impl.GetClassficationImpl</service>
 	
 	<service key="novel_list">org.lkg.service.impl.GetNovelsInfoImpl</service>
+	<service key="upload">org.lkg.service.impl.UploadServiceImpl</service>
+	<service key="download">org.lkg.service.impl.DownloadServiceImpl</service>
+	<service key="preview">org.lkg.service.impl.PreviewServiceImpl</service>
 </services>
