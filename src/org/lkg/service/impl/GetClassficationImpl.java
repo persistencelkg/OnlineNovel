@@ -103,7 +103,6 @@ public class GetClassficationImpl extends BaseServiceImpl<Serializable>{
 		}
 		//正确的输入 -> 获取所有小说集合
 		Service<Classifcation> nextFuction=ServiceFactory.getService(SysConstants.小说集合);
-		
 		nextFuction.setInutData(classes[choice-1]);
 		return nextFuction;
 	

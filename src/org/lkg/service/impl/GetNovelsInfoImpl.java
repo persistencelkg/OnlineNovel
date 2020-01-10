@@ -46,8 +46,6 @@ public class GetNovelsInfoImpl extends BaseServiceImpl<Classifcation>{
 	@Override
 	public Service<? extends Serializable> execute() {
 		System.out.println("即将获得"+getInputData().getClassName()+"的分类信息");
-		
-		
 		SysDTO<Classifcation> dto=new SysDTO<>();
 		dto.setData(getInputData());
 		dto.setType(SysConstants.小说集合);
@@ -90,7 +88,7 @@ public class GetNovelsInfoImpl extends BaseServiceImpl<Classifcation>{
 		 * %1$s :代表format的参数列表的第1个参数(getName())  可以复用 
 		 */
 		System.out.println(String.format(OUTPUT_SIGN_BEGINLINE,getInputData().getClassName()));
-		System.out.println(OUTPUT_SIGN_HEAD);
+		System.out.println(OUTPUT_SIGN_HEAD);  
 		
 		//遍历小说集合
 		int i=0;

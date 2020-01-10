@@ -59,10 +59,9 @@ public class LoginServcieImpl extends BaseServiceImpl<Serializable>{
 			ResultStatus result=communicate(users);
 			
 			if(result==ResultStatus.LOGIN_SUCCESS) {
+				//小说分类
 				System.out.println(OUTPUT_TEXT_SUCCESS);
 				return ServiceFactory.getService(SysConstants.小说分类);
-				//小说分类
-				
 			}else if(result==ResultStatus.USERNAME_NOT_EXIST||
 					result==ResultStatus.LOGIN_FAIL) {
 				System.out.println(OUTPUT_TEXT_FAILED);
